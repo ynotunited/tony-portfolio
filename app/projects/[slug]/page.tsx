@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import { ArrowLeft, ArrowRight, ExternalLink, CircleDot, ShieldCheck, Boxes, Workflow } from 'lucide-react'
 import { projects } from '@/app/data/portfolioData'
@@ -88,15 +87,26 @@ export default function ProjectCaseStudyPage({
 
           {project.slug === 'buildledger' && (
             <div className="mb-12">
+              <div className="mb-4 flex items-center justify-between gap-4">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.14em] text-text-muted mb-2">
+                    Visuals
+                  </p>
+                  <h2 className="text-2xl sm:text-3xl font-semibold text-white">
+                    Screens from the live product
+                  </h2>
+                </div>
+                <p className="text-sm text-text-secondary max-w-sm text-right">
+                  These are the actual BuildLedger screens so visitors can see the product, not just read about it.
+                </p>
+              </div>
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
                 <div className="lg:col-span-7 section-card p-3 sm:p-4">
                   <div className="relative overflow-hidden rounded-2xl border border-white/[0.08] bg-[#070b12] aspect-[16/10]">
-                    <Image
+                    <img
                       src="/buildledger/dashboard.png"
                       alt="BuildLedger dashboard screenshot"
-                      fill
-                      className="object-contain p-3"
-                      priority
+                      className="h-full w-full object-contain p-3"
                     />
                   </div>
                 </div>
@@ -131,11 +141,10 @@ export default function ProjectCaseStudyPage({
                         <span className="h-2 w-2 rounded-full bg-accent" aria-hidden="true" />
                       </div>
                       <div className="relative overflow-hidden rounded-2xl border border-white/[0.08] bg-[#070b12] aspect-[4/3]">
-                        <Image
+                        <img
                           src={shot.src}
                           alt={shot.alt}
-                          fill
-                          className="object-contain p-2"
+                          className="h-full w-full object-contain p-2"
                         />
                       </div>
                     </div>
