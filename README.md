@@ -1,11 +1,11 @@
 # tony
 Tony Olugbusi
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+A polished Next.js portfolio for Tony Olugbusi, built with the App Router, Tailwind, Framer Motion, and a contact form backed by email delivery plus rate limiting.
 
 ## Getting Started
 
-First, run the development server:
+Run the development server:
 
 ```bash
 npm run dev
@@ -17,15 +17,15 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Edit `app/page.tsx` to change the homepage. The page updates as you save.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The app uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to load [Geist](https://vercel.com/font) automatically.
 
 ## Environment
 
-The contact form uses email credentials and rate limiting. Set these in your local `.env.local` or hosting provider:
+The contact form uses email credentials and Upstash-backed rate limiting. Set these in your local `.env.local` or hosting provider:
 
 ```bash
 EMAIL_USER=your-email@example.com
