@@ -20,7 +20,7 @@ export default function Services() {
   const [hovered, setHovered] = useState<number | null>(null)
 
   return (
-    <section id="services" className="relative section-padding">
+    <section id="services" className="relative section-padding section-surface-alt">
       {/* Section glow */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -57,6 +57,7 @@ export default function Services() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {services.map((service, i) => {
               const Icon = iconMap[service.icon]
+              const featured = i === 0
               return (
                 <StaggerItem key={service.title}>
                   <motion.div
@@ -67,13 +68,13 @@ export default function Services() {
                         hovered === null || hovered === i ? 1 : 0.4,
                     }}
                     transition={{ duration: 0.18 }}
-                    className="h-full"
+                    className={`h-full ${featured ? 'lg:col-span-2' : ''}`}
                   >
-                    <SpotlightCard className="glass border border-white/[0.07] glass-hover h-full cursor-default">
-                      <div className="p-6 flex flex-col h-full min-h-[200px]">
+                    <SpotlightCard className={`glass-hover h-full cursor-default ${featured ? 'section-card-strong' : 'section-card'}`}>
+                      <div className={`p-6 flex flex-col h-full min-h-[200px] ${featured ? 'sm:min-h-[240px]' : ''}`}>
                         {/* Icon */}
                         <div
-                          className="w-10 h-10 rounded-xl mb-5 flex items-center justify-center"
+                          className={`w-10 h-10 rounded-xl mb-5 flex items-center justify-center ${featured ? 'shadow-[0_0_28px_rgba(37,99,235,0.25)]' : ''}`}
                           style={{
                             background:
                               'linear-gradient(135deg, rgba(37,99,235,0.2) 0%, rgba(37,99,235,0.05) 100%)',
@@ -86,12 +87,12 @@ export default function Services() {
                         </div>
 
                         {/* Title */}
-                        <h3 className="text-white font-semibold text-base mb-2">
+                        <h3 className={`text-white font-semibold mb-2 ${featured ? 'text-xl' : 'text-base'}`}>
                           {service.title}
                         </h3>
 
                         {/* Description */}
-                        <p className="text-text-secondary text-sm leading-relaxed flex-1">
+                        <p className={`text-text-secondary leading-relaxed flex-1 ${featured ? 'text-base max-w-xl' : 'text-sm'}`}>
                           {service.description}
                         </p>
 
@@ -113,8 +114,9 @@ export default function Services() {
         </StaggerContainer>
 
         <Reveal delay={0.2}>
-          <div className="mt-16 text-center border border-white/[0.07] bg-white/[0.02] rounded-2xl p-8 max-w-2xl mx-auto backdrop-blur-sm">
-            <h3 className="text-xl text-white font-medium mb-6">Ready to build your SaaS or system?</h3>
+          <div className="mt-16 text-center section-card p-8 max-w-2xl mx-auto backdrop-blur-sm">
+            <h3 className="text-xl text-white font-medium mb-3">Ready to build your SaaS or system?</h3>
+            <p className="text-text-secondary text-sm mb-6">Usually responds within 24 hours.</p>
             <Button
               href="https://cal.com/tony-olugbusi-tpujta/30min"
               variant="glow"

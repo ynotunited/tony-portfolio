@@ -84,6 +84,7 @@ export const experiences = [
     role: 'Lead Engineer',
     company: 'Webxpress / MadeIT Codes',
     period: '2022 - Present',
+    stack: ['Laravel', 'Next.js', 'Docker', 'MySQL'],
     description:
       'Architected and led development of multiple production SaaS products. Defined backend architecture patterns, implemented multi-tenant systems, and delivered scalable APIs serving thousands of users.',
     highlights: ['Multi-tenant SaaS architecture', 'Team technical leadership', 'Production deployments on VPS & Docker'],
@@ -92,6 +93,7 @@ export const experiences = [
     role: 'Full-Stack Developer',
     company: 'NeGSt Technologies',
     period: '2021 - 2022',
+    stack: ['Laravel', 'TypeScript', 'REST API', 'MySQL'],
     description:
       'Built internal tools and client-facing web applications. Integrated third-party APIs and payment gateways, reducing manual processing time by 60%.',
     highlights: ['Payment gateway integrations', 'REST API development', 'Client onboarding systems'],
@@ -100,6 +102,7 @@ export const experiences = [
     role: 'Web Administrator',
     company: 'PropertyLink',
     period: '2020 - 2021',
+    stack: ['PHP', 'MySQL', 'CMS', 'Search'],
     description:
       'Managed and extended a property listing platform. Implemented search optimization and listing management features that improved user engagement by 40%.',
     highlights: ['Platform optimization', 'Search & filter systems', 'CMS administration'],
@@ -108,6 +111,7 @@ export const experiences = [
     role: 'Web Developer',
     company: 'SIRL Technologies',
     period: '2019 - 2020',
+    stack: ['PHP', 'Laravel', 'MySQL', 'APIs'],
     description:
       'Developed custom web solutions for enterprise clients. Delivered database-driven applications with a focus on data integrity and performance.',
     highlights: ['Enterprise client delivery', 'Database design', 'Custom web applications'],
@@ -115,3 +119,24 @@ export const experiences = [
 ]
 
 export const techStack = ['PHP', 'Laravel', 'Next.js', 'TypeScript', 'Node.js', 'MySQL', 'Docker']
+
+export const heroOutcome = 'I build production-grade SaaS platforms that help businesses automate operations and scale.'
+
+export const proofMetrics = [
+  { value: '50+', label: 'Projects delivered' },
+  { value: '10+', label: 'Years building software' },
+  { value: 'Multi-tenant', label: 'SaaS architecture' },
+  { value: '100%', label: 'Built in-house' },
+]
+
+export const trustedTechnologies = [
+  'Laravel',
+  'Next.js',
+  'TypeScript',
+  'Docker',
+  'PostgreSQL',
+  'MySQL',
+  'GitHub',
+  'Paystack',
+  'Flutterwave',
+]

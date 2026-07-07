@@ -61,10 +61,10 @@ export default function Contact() {
     setSending(true)
     try {
       const res = await fetch('/api/contact', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(form),
-                      })
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
       if (res.ok) {
         setSent(true)
       } else {
@@ -92,7 +92,7 @@ export default function Contact() {
     }`
 
   return (
-    <section id="contact" className="relative section-padding">
+    <section id="contact" className="relative section-padding section-surface-alt">
       {/* Top glow */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -120,6 +120,9 @@ export default function Contact() {
             <p className="text-text-secondary text-lg max-w-xl mx-auto mb-8">
               Have a project in mind? I&apos;m open to new opportunities. Drop me a
               message and let&apos;s talk.
+            </p>
+            <p className="text-text-muted text-sm">
+              Usually responds within 24 hours.
             </p>
           </Reveal>
           <Reveal delay={0.15}>
@@ -152,11 +155,7 @@ export default function Contact() {
         <Reveal delay={0.2}>
           <div className="max-w-xl mx-auto">
             <div
-              className="rounded-2xl p-6 sm:p-8"
-              style={{
-                background: 'rgba(255,255,255,0.02)',
-                border: '1px solid rgba(255,255,255,0.07)',
-              }}
+              className="section-card p-6 sm:p-8"
             >
               {submitError && !sent && (
                 <div className="mb-6 rounded-xl border border-red-500/20 bg-red-500/10 px-4 py-3 text-sm text-red-100">
@@ -303,6 +302,17 @@ export default function Contact() {
                 </form>
               )}
             </div>
+          </div>
+        </Reveal>
+
+        <Reveal delay={0.23}>
+          <div className="mt-16 section-card p-6 sm:p-8 text-center max-w-3xl mx-auto">
+            <p className="text-text-secondary text-lg mb-5">
+              Have an idea? Let&apos;s build it together.
+            </p>
+            <Button href="https://cal.com/tony-olugbusi-tpujta/30min" variant="glow" external>
+              Schedule a Discovery Call
+            </Button>
           </div>
         </Reveal>
 

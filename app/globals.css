@@ -3,7 +3,8 @@
 @layer base {
   :root {
     --background: #000000;
-    --surface: #0a0a0a;
+    --surface: #0a0f19;
+    --surface-2: #0d1320;
     --accent: #2563EB;
     --text-primary: #FAFAFA;
     --text-secondary: #A1A1AA;
@@ -132,5 +133,48 @@
   .tag:hover {
     background: rgba(255, 255, 255, 0.1);
     color: #FAFAFA;
+  }
+
+  .section-surface {
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(37, 99, 235, 0.06) 0%, transparent 62%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.012) 0%, rgba(255, 255, 255, 0.02) 100%);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  }
+
+  .section-surface-alt {
+    background:
+      radial-gradient(ellipse 70% 55% at 50% 0%, rgba(37, 99, 235, 0.045) 0%, transparent 64%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.018) 0%, rgba(255, 255, 255, 0.012) 100%);
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  }
+
+  .proof-chip {
+    @apply inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-medium;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #E4E4E7;
+  }
+
+  .proof-metric {
+    @apply rounded-2xl border px-4 py-4;
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .section-card {
+    @apply rounded-3xl border;
+    background: rgba(255, 255, 255, 0.025);
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .section-card-strong {
+    @apply rounded-3xl border;
+    background:
+      linear-gradient(180deg, rgba(37, 99, 235, 0.12) 0%, rgba(255, 255, 255, 0.03) 100%);
+    border-color: rgba(37, 99, 235, 0.28);
+    box-shadow: 0 18px 60px rgba(37, 99, 235, 0.1);
   }
 }

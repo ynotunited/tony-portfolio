@@ -12,7 +12,7 @@ const highlights = [
 
 export default function About() {
   return (
-    <section id="about" className="relative section-padding">
+    <section id="about" className="relative section-padding section-surface-alt">
       <div className="container-max">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           {/* Left: Text */}

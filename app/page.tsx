@@ -1,5 +1,6 @@
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
+import ProofStrip from './components/ProofStrip'
 import About from './components/About'
 import BuildLedger from './components/BuildLedger'
 import Projects from './components/Projects'
@@ -13,6 +14,7 @@ export default function Home() {
     <main>
       <Navbar />
       <Hero />
+      <ProofStrip />
       <About />
       <BuildLedger />
       <Projects />

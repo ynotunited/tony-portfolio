@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { ArrowRight, ExternalLink } from 'lucide-react'
 import { Button } from './ui/Button'
-import { techStack } from '@/app/data/portfolioData'
+import { heroOutcome } from '@/app/data/portfolioData'
 
 const containerVariants = {
   hidden: {},
@@ -26,7 +26,7 @@ const itemVariants = {
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden">
+    <section className="relative min-h-[100dvh] flex flex-col justify-center overflow-hidden">
       {/* Grid Background */}
       <div className="absolute inset-0 bg-grid opacity-100 pointer-events-none" />
 
@@ -42,7 +42,7 @@ export default function Hero() {
       {/* Bottom fade */}
       <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-black to-transparent pointer-events-none" />
 
-      <div className="relative z-10 container-max section-padding pt-32 md:pt-40 pb-20">
+      <div className="relative z-10 container-max section-padding pt-32 md:pt-40 pb-16">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -65,9 +65,7 @@ export default function Hero() {
             variants={itemVariants}
             className="text-[clamp(2.5rem,7vw,5rem)] font-bold leading-[1.05] tracking-[-0.04em] text-white mb-6"
           >
-            Senior Full-Stack
-            <br />
-            <span className="text-gradient">SaaS Engineer.</span>
+            <span className="text-gradient">{heroOutcome}</span>
           </motion.h1>
 
           {/* Subtitle */}
@@ -75,22 +73,45 @@ export default function Hero() {
             variants={itemVariants}
             className="text-[clamp(1rem,2.5vw,1.25rem)] text-text-secondary leading-relaxed max-w-2xl mb-8"
           >
-            I build scalable SaaS platforms, APIs, and business automation
-            systems. Precision-engineered for performance, built to last.
+            Senior Full-Stack SaaS Engineer focused on shipping reliable products,
+            clean integrations, and backend systems that keep operations moving.
           </motion.p>
 
           {/* Tech stack line */}
           <motion.div
             variants={itemVariants}
-            className="flex flex-wrap items-center gap-2 mb-10"
+            className="flex flex-wrap items-center gap-2 mb-4"
           >
-            {techStack.map((tech, i) => (
-              <span key={tech} className="flex items-center gap-2">
-                <span className="tag">{tech}</span>
-                {i < techStack.length - 1 && (
-                  <span className="text-white/20 text-xs">·</span>
-                )}
-              </span>
+            {['Laravel', 'Next.js', 'TypeScript', 'Docker', 'API Integrations'].map(
+              (tech) => (
+                <span key={tech} className="tag">
+                  {tech}
+                </span>
+              )
+            )}
+          </motion.div>
+
+          <motion.p
+            variants={itemVariants}
+            className="mb-10 text-sm sm:text-base text-text-secondary"
+          >
+            Laravel • Next.js • TypeScript • Docker • API Integrations
+          </motion.p>
+
+          <motion.div
+            variants={itemVariants}
+            className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-10 max-w-3xl"
+          >
+            {[
+              ['Multi-tenant', 'SaaS systems'],
+              ['Production', 'deployments'],
+              ['Secure', 'authentication'],
+              ['Automation', 'workflows'],
+            ].map(([value, label]) => (
+              <div key={label} className="proof-metric">
+                <p className="text-white text-sm font-semibold">{value}</p>
+                <p className="text-text-muted text-xs mt-1">{label}</p>
+              </div>
             ))}
           </motion.div>
 
@@ -118,22 +139,6 @@ export default function Hero() {
               Download Résumé (PDF)
             </Button>
           </motion.div>
-        </motion.div>
-
-        {/* Scroll indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.6, duration: 0.6 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-          aria-hidden="true"
-        >
-          <span className="text-[10px] text-text-muted uppercase tracking-widest">Scroll</span>
-          <motion.div
-            animate={{ y: [0, 6, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-            className="w-px h-8 bg-gradient-to-b from-white/20 to-transparent"
-          />
         </motion.div>
       </div>
     </section>

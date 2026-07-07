@@ -6,6 +6,14 @@ import { Reveal } from './ui/Reveal'
 import { Button } from './ui/Button'
 
 const tags = ['Laravel', 'Next.js', 'MySQL', 'TypeScript', 'Docker', 'Nginx']
+const proofTags = [
+  'Production ready',
+  'Multi-tenant',
+  'Role-based access',
+  'REST API',
+  'Dockerized',
+  'Hosted on VPS',
+]
 
 const features = [
   'Multi-tenant architecture with full data isolation',
@@ -74,7 +82,7 @@ function ScreenshotPlaceholder({
 
 export default function BuildLedger() {
   return (
-    <section id="buildledger" className="relative section-padding">
+    <section id="buildledger" className="relative section-padding section-surface">
       {/* Section glow */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -114,13 +122,23 @@ export default function BuildLedger() {
               to final payment.
             </p>
           </Reveal>
+          <Reveal delay={0.12}>
+            <div className="mt-6 flex flex-wrap gap-2">
+              {proofTags.map((tag) => (
+                <span key={tag} className="proof-chip">
+                  <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </Reveal>
         </div>
 
         {/* Main content: bento grid */}
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-4">
           {/* Large screenshot */}
           <Reveal delay={0.1} className="lg:col-span-3">
-            <SpotlightCard className="glass border border-white/[0.07] h-full">
+            <SpotlightCard className="section-card h-full">
               <div className="p-4">
                 <ScreenshotPlaceholder label="dashboard.tsx" accent />
               </div>
@@ -131,7 +149,7 @@ export default function BuildLedger() {
           <div className="lg:col-span-2 flex flex-col gap-4">
             {/* Features */}
             <Reveal delay={0.15}>
-              <SpotlightCard className="glass border border-white/[0.07] flex-1">
+              <SpotlightCard className="section-card flex-1">
                 <div className="p-5">
                   <p className="text-xs font-medium uppercase tracking-[0.12em] text-text-muted mb-4">
                     Core Features
@@ -155,7 +173,7 @@ export default function BuildLedger() {
 
             {/* Tech stack */}
             <Reveal delay={0.2}>
-              <SpotlightCard className="glass border border-white/[0.07]">
+              <SpotlightCard className="section-card">
                 <div className="p-5">
                   <p className="text-xs font-medium uppercase tracking-[0.12em] text-text-muted mb-3">
                     Tech Stack

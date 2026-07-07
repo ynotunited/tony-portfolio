@@ -1,4 +1,4 @@
-# tony
+# tony-portfolio
 Tony Olugbusi
 
 A portfolio site for Tony Olugbusi, Senior Full-Stack SaaS Engineer.

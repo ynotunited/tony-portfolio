@@ -5,7 +5,7 @@ import { experiences } from '@/app/data/portfolioData'
 
 export default function Experience() {
   return (
-    <section id="experience" className="relative section-padding">
+    <section id="experience" className="relative section-padding section-surface">
       <div className="container-max">
         {/* Header */}
         <div className="mb-12">
@@ -36,33 +36,41 @@ export default function Experience() {
           <StaggerContainer staggerDelay={0.1}>
             {experiences.map((exp, i) => (
               <StaggerItem key={i}>
-                <div className="relative md:pl-10 pb-12 last:pb-0">
+                <div className="relative md:pl-10 pb-6 last:pb-0">
                   {/* Timeline dot */}
                   <div
                     className="absolute left-[-4.5px] top-1.5 w-2.5 h-2.5 rounded-full bg-accent hidden md:block ring-4 ring-black"
                     aria-hidden="true"
                   />
 
-                  <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 lg:gap-8">
-                    {/* Left: Meta */}
-                    <div className="lg:col-span-1">
-                      <p className="text-text-muted text-xs font-mono mb-1">
-                        {exp.period}
-                      </p>
-                      <p className="text-white font-semibold text-sm leading-snug">
-                        {exp.role}
-                      </p>
-                      <p className="text-accent text-xs mt-0.5">{exp.company}</p>
-                    </div>
+                  <div className="section-card p-5 sm:p-6">
+                    <div className="flex flex-col gap-5">
+                      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
+                        <div>
+                          <p className="text-text-muted text-xs font-mono mb-2">
+                            {exp.period}
+                          </p>
+                          <h3 className="text-white font-semibold text-lg leading-tight">
+                            {exp.role}
+                          </h3>
+                          <p className="text-accent text-sm mt-1">{exp.company}</p>
+                        </div>
+                        <div className="flex flex-wrap gap-2">
+                          {exp.stack.map((tech) => (
+                            <span key={tech} className="tag text-[11px]">
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
 
-                    {/* Right: Content */}
-                    <div className="lg:col-span-3">
-                      <p className="text-text-secondary text-sm leading-relaxed mb-4">
+                      <p className="text-text-secondary text-sm leading-relaxed">
                         {exp.description}
                       </p>
+
                       <div className="flex flex-wrap gap-2">
                         {exp.highlights.map((h) => (
-                          <span key={h} className="tag text-[11px]">
+                          <span key={h} className="proof-chip text-[11px]">
                             {h}
                           </span>
                         ))}
