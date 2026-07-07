@@ -1,7 +1,16 @@
 # tony
 Tony Olugbusi
 
-A polished Next.js portfolio for Tony Olugbusi, built with the App Router, Tailwind, Framer Motion, and a contact form backed by email delivery plus rate limiting.
+A portfolio site for Tony Olugbusi, Senior Full-Stack SaaS Engineer.
+
+It showcases featured work, services, experience, and a contact funnel with email delivery, honeypot protection, and Upstash-backed rate limiting.
+
+## What’s Inside
+
+- Hero, about, featured project, projects, services, experience, and contact sections
+- Animated UI built with Framer Motion and Tailwind CSS
+- Contact form routed through `app/api/contact`
+- Responsive layout tuned for desktop and mobile visitors
 
 ## Getting Started
 
@@ -36,17 +45,15 @@ UPSTASH_REDIS_REST_URL=https://your-upstash-endpoint
 UPSTASH_REDIS_REST_TOKEN=your-upstash-token
 ```
 
-## Learn More
+## Deploy
 
-To learn more about Next.js, take a look at the following resources:
+This app deploys cleanly to Vercel or any host that supports Next.js 16 App Router apps.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Before deploying, set the environment variables above in your production environment.
 
-You can check out the [Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Recommended deploy checklist:
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out the [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Verify `npm run build` passes locally.
+2. Add the production email and Upstash credentials.
+3. Push to your `main` branch.
+4. Connect the GitHub repo to your hosting provider and deploy.
