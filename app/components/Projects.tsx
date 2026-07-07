@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowUpRight } from 'lucide-react'
+import Link from 'next/link'
 import { SpotlightCard } from './ui/SpotlightCard'
 import { Reveal, StaggerContainer, StaggerItem } from './ui/Reveal'
 import { projects } from '@/app/data/portfolioData'
@@ -45,7 +46,11 @@ export default function Projects() {
                     className="h-full"
                   >
                     <SpotlightCard className="glass border border-white/[0.07] glass-hover h-full cursor-pointer">
-                      <div className="p-5 flex flex-col h-full min-h-[220px]">
+                      <Link
+                        href={`/projects/${project.slug}`}
+                        className="block p-5 flex flex-col h-full min-h-[220px]"
+                        aria-label={`Open ${project.title} case study`}
+                      >
                         {/* Top row */}
                         <div className="flex items-start justify-between mb-3">
                           {/* Abstract project icon */}
@@ -87,7 +92,7 @@ export default function Projects() {
                             </span>
                           ))}
                         </div>
-                      </div>
+                      </Link>
                     </SpotlightCard>
                   </motion.div>
                 </StaggerItem>

@@ -1,43 +1,144 @@
 export const projects = [
   {
+    slug: 'buildledger',
     title: 'BuildLedger',
     description:
       'Multi-tenant SaaS platform for invoices, proposals, contracts, payments, and client workflows.',
     tags: ['Laravel', 'Next.js', 'MySQL', 'TypeScript', 'Docker'],
     link: 'https://buildledger.madeitcodes.online',
     featured: true,
+    caseStudy: {
+      summary:
+        'A multi-tenant SaaS platform that centralizes invoicing, proposals, contracts, payments, and client communication in one operational workspace.',
+      problem:
+        'Small teams were managing money, approvals, and client updates across spreadsheets, email threads, and scattered tools. That created delays, version confusion, and a weak handoff from sales to delivery.',
+      solution:
+        'BuildLedger consolidates the full client lifecycle into one app, with tenant isolation, role-based access, invoice and proposal flows, and a secure deployment model that is easy to operate in production.',
+      architecture: [
+        'Laravel API layer for business rules and auth',
+        'Next.js front end for fast client and admin workflows',
+        'MySQL schema designed for tenant separation',
+        'Dockerized deployment for repeatable releases',
+      ],
+      outcome: [
+        'Clearer handoff from lead to invoice',
+        'Less manual admin work for project teams',
+        'A foundation ready for billing, reporting, and automation',
+      ],
+      stack: ['Laravel', 'Next.js', 'MySQL', 'TypeScript', 'Docker', 'Nginx'],
+    },
   },
   {
+    slug: 'efinder',
     title: 'eFinder',
     description:
       'Lost & found system enabling institutions to manage and reunite people with lost items at scale.',
     tags: ['Laravel', 'MySQL', 'Vue.js'],
     link: '#',
     featured: false,
+    caseStudy: {
+      summary:
+        'A lost-and-found workflow system built for schools and institutions to track items, handle claims, and reduce admin overhead.',
+      problem:
+        'Institutions needed a reliable way to record found items, manage claims, and keep the process organized without relying on ad-hoc communication.',
+      solution:
+        'eFinder introduces structured item intake, claim tracking, and searchable records so administrators can process requests quickly and transparently.',
+      architecture: [
+        'Laravel backend with relational data modeling',
+        'Vue.js interface for quick staff workflows',
+        'MySQL persistence for searchable claims history',
+      ],
+      outcome: [
+        'Better visibility into incoming and claimed items',
+        'Faster administrative turnaround',
+        'Improved accountability for staff and users',
+      ],
+      stack: ['Laravel', 'MySQL', 'Vue.js'],
+    },
   },
   {
+    slug: 'multivend-marketplace',
     title: 'MultiVend Marketplace',
     description:
       'Multi-vendor e-commerce platform with vendor onboarding, storefront management, and order routing.',
     tags: ['PHP', 'Laravel', 'MySQL', 'Redis'],
     link: '#',
     featured: false,
+    caseStudy: {
+      summary:
+        'A marketplace platform that gives multiple vendors their own storefronts while keeping order routing and operations centralized.',
+      problem:
+        'Marketplaces need to balance vendor autonomy with operational control, especially when onboarding, orders, and inventory all move at once.',
+      solution:
+        'MultiVend gives each vendor a managed storefront while the platform owner retains control over onboarding, orders, and platform-wide workflows.',
+      architecture: [
+        'Laravel services for catalog and order orchestration',
+        'Redis-backed queues for async marketplace tasks',
+        'MySQL for transactional data and storefront state',
+      ],
+      outcome: [
+        'A scalable pattern for multi-vendor commerce',
+        'Cleaner routing for orders and vendor actions',
+        'Architecture ready for growth and automation',
+      ],
+      stack: ['PHP', 'Laravel', 'MySQL', 'Redis'],
+    },
   },
   {
+    slug: 'ngo-erp',
     title: 'NGO / ERP System',
     description:
       'Enterprise resource planning system for non-profits - managing grants, beneficiaries, and reporting.',
     tags: ['Laravel', 'Livewire', 'MySQL'],
     link: '#',
     featured: false,
+    caseStudy: {
+      summary:
+        'An ERP-style internal system for non-profits to manage grants, beneficiaries, and reporting in one place.',
+      problem:
+        'Non-profit operations often rely on disconnected tools for funding, record-keeping, and reporting, which makes audits and updates harder than they need to be.',
+      solution:
+        'This ERP system centralizes grant tracking, beneficiary records, and reporting workflows so teams can work with clearer data and fewer manual steps.',
+      architecture: [
+        'Laravel backend with Livewire-powered admin interfaces',
+        'MySQL for structured records and reporting',
+        'Role-aware workflows for internal team access',
+      ],
+      outcome: [
+        'Simplified reporting and oversight',
+        'More reliable records for grant and beneficiary management',
+        'Less manual reconciliation across systems',
+      ],
+      stack: ['Laravel', 'Livewire', 'MySQL'],
+    },
   },
   {
+    slug: 'hospital-management-system',
     title: 'Hospital Management System',
     description:
       'End-to-end HMS covering patient records, appointments, billing, lab results, and staff management.',
     tags: ['PHP', 'Laravel', 'MySQL', 'REST API'],
     link: '#',
     featured: false,
+    caseStudy: {
+      summary:
+        'A hospital management platform covering patient records, appointments, billing, lab results, and staff operations.',
+      problem:
+        'Healthcare teams need accurate, fast access to operational data while keeping patient records and workflows organized across departments.',
+      solution:
+        'The HMS organizes clinical and administrative workflows into one system with structured records, access control, and workflow-friendly APIs.',
+      architecture: [
+        'Laravel application with API-first workflows',
+        'MySQL database for patient and billing records',
+        'REST endpoints for integration-ready operations',
+      ],
+      outcome: [
+        'Improved operational visibility',
+        'Fewer manual handoffs between departments',
+        'A maintainable base for future integrations',
+      ],
+      stack: ['PHP', 'Laravel', 'MySQL', 'REST API'],
+    },
   },
 ]
 
