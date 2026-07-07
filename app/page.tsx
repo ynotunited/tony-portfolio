@@ -5,7 +5,9 @@ import About from './components/About'
 import BuildLedger from './components/BuildLedger'
 import Projects from './components/Projects'
 import Services from './components/Services'
+import Process from './components/Process'
 import Experience from './components/Experience'
+import Articles from './components/Articles'
 import Contact from './components/Contact'
 import FloatingCTA from './components/FloatingCTA'
 
@@ -19,7 +21,9 @@ export default function Home() {
       <BuildLedger />
       <Projects />
       <Services />
+      <Process />
       <Experience />
+      <Articles />
       <Contact />
       <FloatingCTA />
     </main>

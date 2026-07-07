@@ -104,20 +104,20 @@ export default function Contact() {
 
       <div className="container-max relative z-10">
         {/* Big CTA */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-16 max-w-3xl mx-auto px-4">
           <Reveal>
             <span className="text-xs font-medium uppercase tracking-[0.15em] text-text-muted mb-6 block">
               Contact
             </span>
           </Reveal>
           <Reveal delay={0.05}>
-            <h2 className="text-[clamp(1.5rem,5vw,3.5rem)] font-bold tracking-tight leading-[1.1] text-white mb-6 max-w-2xl">
+            <h2 className="text-[clamp(1.5rem,5vw,3rem)] font-bold tracking-tight leading-[1.2] text-white mb-6 text-balance">
               Great software isn&apos;t just built—it&apos;s{' '}
               <span className="text-gradient">engineered for growth.</span>
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
-            <p className="text-text-secondary text-lg max-w-xl mx-auto mb-8">
+            <p className="text-text-secondary text-lg max-w-xl mx-auto mb-8 text-balance">
               Have a project in mind? I&apos;m open to new opportunities. Drop me a
               message and let&apos;s talk.
             </p>
@@ -126,7 +126,7 @@ export default function Contact() {
             </p>
           </Reveal>
           <Reveal delay={0.15}>
-            <div className="flex flex-wrap items-center justify-center gap-4">
+            <div className="flex flex-wrap items-center justify-center gap-4 mt-8">
               <Button href="mailto:tonyolugbusi@madeitcodes.online" variant="primary">
                 <Mail className="w-4 h-4" aria-hidden="true" />
                 Send an Email

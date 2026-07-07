@@ -8,12 +8,14 @@ interface SpotlightCardProps {
   children: React.ReactNode
   className?: string
   spotlightColor?: string
+  onClick?: React.MouseEventHandler<HTMLDivElement>
 }
 
 export function SpotlightCard({
   children,
   className,
   spotlightColor = 'rgba(37, 99, 235, 0.12)',
+  onClick,
 }: SpotlightCardProps) {
   const ref = useRef<HTMLDivElement>(null)
   const mouseX = useMotionValue(-400)
@@ -43,6 +45,7 @@ export function SpotlightCard({
       ref={ref}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
+      onClick={onClick}
       className={cn('relative overflow-hidden rounded-2xl', className)}
     >
       <motion.div
