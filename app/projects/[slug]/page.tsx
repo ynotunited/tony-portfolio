@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import { ArrowLeft, ArrowRight, ExternalLink, CircleDot, ShieldCheck, Boxes, Workflow } from 'lucide-react'
 import { projects } from '@/app/data/portfolioData'
@@ -84,6 +85,65 @@ export default function ProjectCaseStudyPage({
               </div>
             </div>
           </div>
+
+          {project.slug === 'buildledger' && (
+            <div className="mb-12">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
+                <div className="lg:col-span-7 section-card p-3 sm:p-4">
+                  <div className="relative overflow-hidden rounded-2xl border border-white/[0.08] bg-[#070b12] aspect-[16/10]">
+                    <Image
+                      src="/buildledger/dashboard.png"
+                      alt="BuildLedger dashboard screenshot"
+                      fill
+                      className="object-contain p-3"
+                      priority
+                    />
+                  </div>
+                </div>
+                <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {[
+                    {
+                      src: '/buildledger/invoices.png',
+                      alt: 'BuildLedger invoices screenshot',
+                      label: 'Invoices',
+                    },
+                    {
+                      src: '/buildledger/contracts.png',
+                      alt: 'BuildLedger contracts screenshot',
+                      label: 'Contracts',
+                    },
+                    {
+                      src: '/buildledger/clients.png',
+                      alt: 'BuildLedger clients screenshot',
+                      label: 'Clients',
+                    },
+                    {
+                      src: '/buildledger/payments.png',
+                      alt: 'BuildLedger payments screenshot',
+                      label: 'Payments',
+                    },
+                  ].map((shot) => (
+                    <div key={shot.label} className="section-card p-3">
+                      <div className="flex items-center justify-between mb-2">
+                        <p className="text-[11px] uppercase tracking-[0.14em] text-text-muted">
+                          {shot.label}
+                        </p>
+                        <span className="h-2 w-2 rounded-full bg-accent" aria-hidden="true" />
+                      </div>
+                      <div className="relative overflow-hidden rounded-2xl border border-white/[0.08] bg-[#070b12] aspect-[4/3]">
+                        <Image
+                          src={shot.src}
+                          alt={shot.alt}
+                          fill
+                          className="object-contain p-2"
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
 
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-4">
             <div className="lg:col-span-3 section-card p-6 sm:p-8">
