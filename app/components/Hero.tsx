@@ -1,6 +1,7 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { useEffect, useState } from 'react'
+import { motion, useMotionValue, useSpring, useMotionTemplate } from 'framer-motion'
 import { ArrowRight, ExternalLink } from 'lucide-react'
 import { Button } from './ui/Button'
 import { heroOutcome } from '@/app/data/portfolioData'
@@ -25,19 +26,53 @@ const itemVariants = {
 } as const
 
 export default function Hero() {
+  const mouseX = useMotionValue(0)
+  const mouseY = useMotionValue(0)
+  const [mounted, setMounted] = useState(false)
+
+  // Spring animation for smooth mouse tracking
+  const springX = useSpring(mouseX, { stiffness: 50, damping: 20 })
+  const springY = useSpring(mouseY, { stiffness: 50, damping: 20 })
+
+  useEffect(() => {
+    setMounted(true)
+    const handleMouseMove = (e: MouseEvent) => {
+      const { clientX, clientY } = e
+      const { innerWidth, innerHeight } = window
+      // Calculate position relative to center of screen, from -1 to 1
+      const x = (clientX / innerWidth) * 2 - 1
+      const y = (clientY / innerHeight) * 2 - 1
+      mouseX.set(x * 200) // Max movement in pixels
+      mouseY.set(y * 200)
+    }
+
+    window.addEventListener('mousemove', handleMouseMove)
+    return () => window.removeEventListener('mousemove', handleMouseMove)
+  }, [mouseX, mouseY])
+
+  // Template for the moving gradient background
+  const background = useMotionTemplate`radial-gradient(ellipse 80% 50% at calc(50% + ${springX}px) calc(-10% + ${springY}px), rgba(37,99,235,0.15) 0%, transparent 70%)`
+
   return (
     <section className="relative min-h-[100dvh] flex flex-col justify-center overflow-hidden">
       {/* Grid Background */}
       <div className="absolute inset-0 bg-grid opacity-100 pointer-events-none" />
 
-      {/* Radial gradient top-center glow */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            'radial-gradient(ellipse 80% 50% at 50% -10%, rgba(37,99,235,0.18) 0%, transparent 70%)',
-        }}
-      />
+      {/* Radial gradient top-center glow with mouse tracking */}
+      {mounted ? (
+        <motion.div
+          className="absolute inset-0 pointer-events-none"
+          style={{ background }}
+        />
+      ) : (
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              'radial-gradient(ellipse 80% 50% at 50% -10%, rgba(37,99,235,0.15) 0%, transparent 70%)',
+          }}
+        />
+      )}
 
       {/* Bottom fade */}
       <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-black to-transparent pointer-events-none" />
@@ -71,31 +106,17 @@ export default function Hero() {
           {/* Subtitle */}
           <motion.p
             variants={itemVariants}
-            className="text-[clamp(1rem,2.5vw,1.25rem)] text-text-secondary leading-relaxed max-w-2xl mb-8"
+            className="text-[clamp(1rem,2.5vw,1.25rem)] text-text-secondary leading-relaxed max-w-2xl mb-3"
           >
             Senior Full-Stack SaaS Engineer focused on shipping reliable products,
             clean integrations, and backend systems that keep operations moving.
           </motion.p>
-
-          {/* Tech stack line */}
-          <motion.div
-            variants={itemVariants}
-            className="flex flex-wrap items-center gap-2 mb-4"
-          >
-            {['Laravel', 'Next.js', 'TypeScript', 'Docker', 'API Integrations'].map(
-              (tech) => (
-                <span key={tech} className="tag">
-                  {tech}
-                </span>
-              )
-            )}
-          </motion.div>
-
           <motion.p
             variants={itemVariants}
-            className="mb-10 text-sm sm:text-base text-text-secondary"
+            className="text-[clamp(0.9rem,2vw,1.1rem)] text-text-muted leading-relaxed max-w-2xl mb-10"
           >
-            Laravel • Next.js • TypeScript • Docker • API Integrations
+            From architecture and database design to deployment, I build software
+            that businesses rely on every day.
           </motion.p>
 
           <motion.div

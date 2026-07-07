@@ -24,8 +24,8 @@ export default function About() {
             </Reveal>
             <Reveal delay={0.05}>
               <h2 className="text-display-md text-white mb-6">
-                Engineering systems that{' '}
-                <span className="text-gradient">survive scale.</span>
+                I turn messy processes into{' '}
+                <span className="text-gradient">software teams depend on.</span>
               </h2>
             </Reveal>
             <Reveal delay={0.1}>
@@ -37,10 +37,11 @@ export default function About() {
             </Reveal>
             <Reveal delay={0.15}>
               <p className="text-text-secondary leading-[1.8]">
-                My focus is on the intersection of clean engineering and real
-                business impact - platforms that process real money, manage real
-                clients, and operate reliably at scale. Not proof-of-concepts.
-                Production systems.
+                I enjoy turning messy business processes into software that teams
+                can depend on. Whether it&apos;s a SaaS platform, ERP, payment
+                system, or internal tool, I focus on building maintainable
+                software with clean architecture, intuitive user experiences,
+                and reliable deployment pipelines.
               </p>
             </Reveal>
           </div>

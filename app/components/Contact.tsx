@@ -111,9 +111,9 @@ export default function Contact() {
             </span>
           </Reveal>
           <Reveal delay={0.05}>
-            <h2 className="text-[clamp(2rem,6vw,4.5rem)] font-bold tracking-tight leading-[1.05] text-white mb-6">
-              Let&apos;s build something{' '}
-              <span className="text-gradient">scalable.</span>
+            <h2 className="text-[clamp(1.5rem,5vw,3.5rem)] font-bold tracking-tight leading-[1.1] text-white mb-6 max-w-2xl">
+              Great software isn&apos;t just built—it&apos;s{' '}
+              <span className="text-gradient">engineered for growth.</span>
             </h2>
           </Reveal>
           <Reveal delay={0.1}>

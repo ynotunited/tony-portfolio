@@ -224,8 +224,8 @@ export const techStack = ['PHP', 'Laravel', 'Next.js', 'TypeScript', 'Node.js', 
 export const heroOutcome = 'I build production-grade SaaS platforms that help businesses automate operations and scale.'
 
 export const proofMetrics = [
-  { value: '50+', label: 'Projects delivered' },
-  { value: '10+', label: 'Years building software' },
+  { value: '50+', label: 'Projects delivered', numeric: 50, suffix: '+' },
+  { value: '10+', label: 'Years building software', numeric: 10, suffix: '+' },
   { value: 'Multi-tenant', label: 'SaaS architecture' },
   { value: '100%', label: 'Built in-house' },
 ]
