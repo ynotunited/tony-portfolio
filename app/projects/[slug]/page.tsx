@@ -102,12 +102,15 @@ export default function ProjectCaseStudyPage({
               </div>
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
                 <div className="lg:col-span-7 section-card p-3 sm:p-4">
-                  <div className="relative overflow-hidden rounded-2xl border border-white/[0.08] bg-[#070b12] aspect-[16/10]">
+                  <div className="relative overflow-hidden rounded-2xl border border-white/[0.12] bg-[#0b1220] shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] aspect-[16/10]">
                     <img
                       src="/buildledger/dashboard.png"
                       alt="BuildLedger dashboard screenshot"
-                      className="h-full w-full object-contain p-3"
+                      className="h-full w-full object-cover p-2"
                     />
+                    <div className="absolute left-3 top-3 rounded-full border border-white/10 bg-black/70 px-3 py-1 text-[10px] uppercase tracking-[0.14em] text-white">
+                      Dashboard
+                    </div>
                   </div>
                 </div>
                 <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -140,11 +143,11 @@ export default function ProjectCaseStudyPage({
                         </p>
                         <span className="h-2 w-2 rounded-full bg-accent" aria-hidden="true" />
                       </div>
-                      <div className="relative overflow-hidden rounded-2xl border border-white/[0.08] bg-[#070b12] aspect-[4/3]">
+                      <div className="relative overflow-hidden rounded-2xl border border-white/[0.12] bg-[#0b1220] shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] aspect-[4/3]">
                         <img
                           src={shot.src}
                           alt={shot.alt}
-                          className="h-full w-full object-contain p-2"
+                          className="h-full w-full object-cover p-2"
                         />
                       </div>
                     </div>

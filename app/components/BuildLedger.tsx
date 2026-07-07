@@ -6,6 +6,7 @@ import { Reveal } from './ui/Reveal'
 import { Button } from './ui/Button'
 
 const tags = ['Laravel', 'Next.js', 'MySQL', 'TypeScript', 'Docker', 'Nginx']
+
 const proofTags = [
   'Production ready',
   'Multi-tenant',
@@ -23,62 +24,6 @@ const features = [
   'Client portal & project tracking',
   'Admin analytics dashboard',
 ]
-
-// Abstract "screenshot" placeholders using CSS
-function ScreenshotPlaceholder({
-  label,
-  accent = false,
-}: {
-  label: string
-  accent?: boolean
-}) {
-  return (
-    <div
-      className={`relative rounded-xl overflow-hidden border border-white/[0.07] ${accent ? 'bg-gradient-to-br from-[#0f1729] to-[#0a0a0a]' : 'bg-[#0d0d0d]'} aspect-video flex flex-col`}
-    >
-      {/* Fake toolbar */}
-      <div className="flex items-center gap-1.5 px-3 py-2 border-b border-white/[0.06]">
-        <div className="w-2 h-2 rounded-full bg-white/10" />
-        <div className="w-2 h-2 rounded-full bg-white/10" />
-        <div className="w-2 h-2 rounded-full bg-white/10" />
-        <div className="ml-2 h-1.5 w-24 rounded-full bg-white/[0.06]" />
-      </div>
-      {/* Fake content lines */}
-      <div className="flex-1 p-3 space-y-2">
-        <div className="h-2 w-3/4 rounded-full bg-white/[0.05]" />
-        <div className="h-2 w-1/2 rounded-full bg-white/[0.04]" />
-        <div className="grid grid-cols-3 gap-2 mt-3">
-          {[...Array(3)].map((_, i) => (
-            <div
-              key={i}
-              className="h-8 rounded-lg"
-              style={{
-                background: `rgba(37,99,235,${0.04 + i * 0.02})`,
-                border: '1px solid rgba(37,99,235,0.12)',
-              }}
-            />
-          ))}
-        </div>
-        <div className="h-px bg-white/[0.04] my-2" />
-        {[...Array(3)].map((_, i) => (
-          <div key={i} className="flex gap-2 items-center">
-            <div className="w-2 h-2 rounded-full bg-accent/30 flex-shrink-0" />
-            <div
-              className="h-1.5 rounded-full bg-white/[0.04]"
-              style={{ width: `${60 + i * 10}%` }}
-            />
-          </div>
-        ))}
-      </div>
-      {/* Label */}
-      <div className="absolute bottom-2 right-2">
-        <span className="text-[9px] text-text-muted font-mono uppercase tracking-wider">
-          {label}
-        </span>
-      </div>
-    </div>
-  )
-}
 
 export default function BuildLedger() {
   return (
@@ -136,11 +81,21 @@ export default function BuildLedger() {
 
         {/* Main content: bento grid */}
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-4">
-          {/* Large screenshot */}
+          {/* Large screenshot - dashboard */}
           <Reveal delay={0.1} className="lg:col-span-3">
             <SpotlightCard className="section-card h-full">
               <div className="p-4">
-                <ScreenshotPlaceholder label="dashboard.tsx" accent />
+                <div className="relative rounded-xl overflow-hidden border border-white/[0.07] aspect-video">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/buildledger/dashboard.png"
+                    alt="BuildLedger Dashboard"
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
+                <p className="mt-2 text-[10px] text-text-muted font-mono uppercase tracking-wider">
+                  Dashboard View
+                </p>
               </div>
             </SpotlightCard>
           </Reveal>
@@ -161,9 +116,7 @@ export default function BuildLedger() {
                           className="w-4 h-4 text-accent mt-0.5 flex-shrink-0"
                           aria-hidden="true"
                         />
-                        <span className="text-text-secondary text-sm leading-snug">
-                          {f}
-                        </span>
+                        <span className="text-text-secondary text-sm leading-snug">{f}</span>
                       </li>
                     ))}
                   </ul>
@@ -190,18 +143,39 @@ export default function BuildLedger() {
             </Reveal>
           </div>
 
-          {/* Bottom row: two smaller screens */}
+          {/* Bottom row: two smaller screenshots */}
           <Reveal delay={0.18} className="lg:col-span-2">
             <SpotlightCard className="glass border border-white/[0.07]">
               <div className="p-4">
-                <ScreenshotPlaceholder label="invoices.tsx" />
+                <div className="relative rounded-xl overflow-hidden border border-white/[0.07] aspect-video">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/buildledger/invoices.png"
+                    alt="BuildLedger Invoices"
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
+                <p className="mt-2 text-[10px] text-text-muted font-mono uppercase tracking-wider">
+                  Invoices
+                </p>
               </div>
             </SpotlightCard>
           </Reveal>
+
           <Reveal delay={0.22} className="lg:col-span-3">
             <SpotlightCard className="glass border border-white/[0.07]">
               <div className="p-4">
-                <ScreenshotPlaceholder label="contracts.tsx" />
+                <div className="relative rounded-xl overflow-hidden border border-white/[0.07] aspect-video">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/buildledger/contracts.png"
+                    alt="BuildLedger Contracts"
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
+                <p className="mt-2 text-[10px] text-text-muted font-mono uppercase tracking-wider">
+                  Contracts
+                </p>
               </div>
             </SpotlightCard>
           </Reveal>
