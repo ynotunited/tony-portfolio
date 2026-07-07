@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { ArrowLeft, ArrowRight, ExternalLink } from 'lucide-react'
+import { ArrowLeft, ArrowRight, ExternalLink, CircleDot, ShieldCheck, Boxes, Workflow } from 'lucide-react'
 import { projects } from '@/app/data/portfolioData'
 
 export function generateStaticParams() {
@@ -43,16 +43,46 @@ export default function ProjectCaseStudyPage({
             )}
           </div>
 
-          <div className="max-w-4xl mb-10">
-            <p className="text-xs uppercase tracking-[0.16em] text-text-muted mb-4">
-              Case Study
-            </p>
-            <h1 className="text-[clamp(2.4rem,6vw,4.8rem)] font-bold tracking-[-0.04em] leading-[1.03] mb-5">
-              {project.title}
-            </h1>
-            <p className="text-text-secondary text-lg leading-relaxed max-w-3xl">
-              {project.caseStudy.summary}
-            </p>
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-5 items-start mb-12">
+            <div className="lg:col-span-3 max-w-4xl">
+              <p className="text-xs uppercase tracking-[0.16em] text-text-muted mb-4">
+                Case Study
+              </p>
+              <h1 className="text-[clamp(2.6rem,6vw,5rem)] font-bold tracking-[-0.05em] leading-[0.98] mb-5">
+                {project.title}
+              </h1>
+              <p className="text-text-secondary text-lg leading-relaxed max-w-3xl">
+                {project.caseStudy.summary}
+              </p>
+            </div>
+
+            <div className="lg:col-span-2 section-card-strong p-5 sm:p-6">
+              <p className="text-xs uppercase tracking-[0.14em] text-text-muted mb-4">
+                At a glance
+              </p>
+              <div className="space-y-4">
+                <div className="rounded-2xl border border-white/[0.08] bg-black/20 p-4">
+                  <p className="text-[11px] uppercase tracking-[0.14em] text-text-muted mb-2">
+                    Primary focus
+                  </p>
+                  <p className="text-white text-sm leading-relaxed">
+                    {project.featured ? 'Production SaaS platform' : 'Business system delivered for real workflows'}
+                  </p>
+                </div>
+                <div className="grid grid-cols-3 gap-3">
+                  {[
+                    { value: project.caseStudy.outcome.length, label: 'outcomes' },
+                    { value: project.caseStudy.stack.length, label: 'tools' },
+                    { value: project.caseStudy.architecture.length, label: 'systems' },
+                  ].map((item) => (
+                    <div key={item.label} className="rounded-2xl border border-white/[0.08] bg-black/20 p-3 text-center">
+                      <p className="text-lg font-semibold text-white">{item.value}</p>
+                      <p className="text-[10px] uppercase tracking-[0.12em] text-text-muted mt-1">{item.label}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-4">
@@ -100,15 +130,30 @@ export default function ProjectCaseStudyPage({
             </div>
 
             <div className="lg:col-span-5 section-card p-6 sm:p-8">
-              <p className="text-xs uppercase tracking-[0.14em] text-text-muted mb-4">
-                Architecture
-              </p>
+              <div className="flex items-center justify-between gap-4 mb-5">
+                <p className="text-xs uppercase tracking-[0.14em] text-text-muted">
+                  Architecture
+                </p>
+                <p className="text-xs text-text-muted">
+                  Built as a working system, not a concept
+                </p>
+              </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                {project.caseStudy.architecture.map((item) => (
-                  <div key={item} className="proof-metric">
-                    <p className="text-sm text-white leading-relaxed">{item}</p>
-                  </div>
-                ))}
+                {project.caseStudy.architecture.map((item, index) => {
+                  const icons = [Boxes, Workflow, ShieldCheck, CircleDot]
+                  const Icon = icons[index % icons.length]
+                  return (
+                    <div
+                      key={item}
+                      className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-4 flex items-start gap-3"
+                    >
+                      <div className="mt-0.5 w-9 h-9 rounded-xl border border-white/[0.08] bg-white/[0.04] flex items-center justify-center">
+                        <Icon className="w-4 h-4 text-accent" aria-hidden="true" />
+                      </div>
+                      <p className="text-sm text-white leading-relaxed">{item}</p>
+                    </div>
+                  )
+                })}
               </div>
             </div>
           </div>

@@ -84,6 +84,13 @@ export default function Projects() {
                           {project.description}
                         </p>
 
+                        <div className="flex items-center gap-2 text-xs font-medium text-white mb-4">
+                          <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5">
+                            Read case study
+                            <ArrowUpRight className="w-3.5 h-3.5" aria-hidden="true" />
+                          </span>
+                        </div>
+
                         {/* Tags */}
                         <div className="flex flex-wrap gap-1.5 mt-auto">
                           {project.tags.map((tag) => (
