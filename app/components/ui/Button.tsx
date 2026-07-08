@@ -7,7 +7,7 @@ import { cn } from '@/lib/cn'
 interface ButtonProps {
   children: React.ReactNode
   href?: string
-  onClick?: () => void
+  onClick?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>
   variant?: 'primary' | 'secondary' | 'ghost' | 'glow'
   className?: string
   external?: boolean
@@ -51,6 +51,7 @@ export function Button({
           href={href}
           target={external ? '_blank' : undefined}
           rel={external ? 'noopener noreferrer' : undefined}
+          onClick={onClick}
           className={cn(base, variants[variant], className)}
         >
           {children}

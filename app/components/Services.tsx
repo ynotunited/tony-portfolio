@@ -7,6 +7,7 @@ import { SpotlightCard } from './ui/SpotlightCard'
 import { Reveal, StaggerContainer, StaggerItem } from './ui/Reveal'
 import { Button } from './ui/Button'
 import { services } from '@/app/data/portfolioData'
+import { trackEvent } from '@/lib/analytics'
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Layers,
@@ -121,6 +122,12 @@ export default function Services() {
               href="https://cal.com/tony-olugbusi-tpujta/30min"
               variant="glow"
               external
+              onClick={() =>
+                trackEvent('cta_click', {
+                  cta_label: 'book_discovery_call',
+                  cta_location: 'services_section',
+                })
+              }
             >
               Book a Discovery Call
             </Button>

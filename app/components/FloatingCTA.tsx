@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { MessageCircle } from 'lucide-react'
 import Link from 'next/link'
+import { trackEvent } from '@/lib/analytics'
 
 export default function FloatingCTA() {
   return (
@@ -20,6 +21,12 @@ export default function FloatingCTA() {
           href="https://cal.com/tony-olugbusi-tpujta/30min"
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() =>
+            trackEvent('cta_click', {
+              cta_label: 'floating_talk',
+              cta_location: 'floating_cta',
+            })
+          }
           className="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-5 py-3 rounded-full shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_30px_rgba(37,99,235,0.6)] transition-all font-medium text-sm border border-blue-500/30"
         >
           <MessageCircle className="w-4 h-4" />

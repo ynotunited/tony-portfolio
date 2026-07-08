@@ -6,6 +6,7 @@ import { SpotlightCard } from './ui/SpotlightCard'
 import { Reveal } from './ui/Reveal'
 import { Button } from './ui/Button'
 import Link from 'next/link'
+import { trackEvent } from '@/lib/analytics'
 
 const tags = ['Laravel', 'Next.js', 'MySQL', 'TypeScript', 'Docker', 'Nginx']
 
@@ -105,6 +106,12 @@ export default function BuildLedger() {
                   href="https://buildledger.madeitcodes.online"
                   variant="secondary"
                   external
+                  onClick={() =>
+                    trackEvent('cta_click', {
+                      cta_label: 'buildledger_live_demo',
+                      cta_location: 'featured_project',
+                    })
+                  }
                 >
                   Live Demo
                   <ExternalLink className="w-3.5 h-3.5" aria-hidden="true" />
@@ -120,6 +127,12 @@ export default function BuildLedger() {
                 </a>
                 <Link
                   href="/projects/buildledger"
+                  onClick={() =>
+                    trackEvent('cta_click', {
+                      cta_label: 'buildledger_case_study',
+                      cta_location: 'featured_project',
+                    })
+                  }
                   className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-text-secondary border border-white/10 rounded-xl hover:border-white/20 hover:text-white transition-all duration-150"
                 >
                   <BookOpen className="w-3.5 h-3.5" aria-hidden="true" />

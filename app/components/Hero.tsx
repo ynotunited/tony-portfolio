@@ -5,6 +5,7 @@ import { motion, useMotionValue, useSpring, useMotionTemplate } from 'framer-mot
 import { ArrowRight, ExternalLink } from 'lucide-react'
 import { Button } from './ui/Button'
 import { heroOutcome } from '@/app/data/portfolioData'
+import { trackEvent } from '@/lib/analytics'
 
 const containerVariants = {
   hidden: {},
@@ -141,7 +142,16 @@ export default function Hero() {
             variants={itemVariants}
             className="flex flex-wrap items-center gap-3"
           >
-            <Button href="#projects" variant="secondary">
+            <Button
+              href="#projects"
+              variant="secondary"
+              onClick={() =>
+                trackEvent('cta_click', {
+                  cta_label: 'view_projects',
+                  cta_location: 'hero',
+                })
+              }
+            >
               View Projects
               <ArrowRight className="w-4 h-4" aria-hidden="true" />
             </Button>
@@ -149,6 +159,12 @@ export default function Hero() {
               href="https://cal.com/tony-olugbusi-tpujta/30min"
               variant="glow"
               external
+              onClick={() =>
+                trackEvent('cta_click', {
+                  cta_label: 'schedule_call',
+                  cta_location: 'hero',
+                })
+              }
             >
               Schedule a Call
             </Button>
@@ -156,6 +172,12 @@ export default function Hero() {
               href="/Tony_Olugbusi_FullStack_Resume.pdf"
               variant="ghost"
               external
+              onClick={() =>
+                trackEvent('cta_click', {
+                  cta_label: 'download_resume',
+                  cta_location: 'hero',
+                })
+              }
             >
               Download Résumé (PDF)
             </Button>

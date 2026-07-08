@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { Mail, Send, ArrowRight } from 'lucide-react'
 import { Reveal } from './ui/Reveal'
 import { Button } from './ui/Button'
+import { trackEvent } from '@/lib/analytics'
 
 const GithubIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
@@ -59,6 +60,9 @@ export default function Contact() {
     e.preventDefault()
     setSubmitError(null)
     setSending(true)
+    trackEvent('contact_form_submit', {
+      form_location: 'contact_section',
+    })
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
@@ -127,7 +131,16 @@ export default function Contact() {
           </Reveal>
           <Reveal delay={0.15}>
             <div className="flex flex-wrap items-center justify-center gap-4 mt-8">
-              <Button href="mailto:tonyolugbusi@madeitcodes.online" variant="primary">
+              <Button
+                href="mailto:tonyolugbusi@madeitcodes.online"
+                variant="primary"
+                onClick={() =>
+                  trackEvent('cta_click', {
+                    cta_label: 'send_email',
+                    cta_location: 'contact_section',
+                  })
+                }
+              >
                 <Mail className="w-4 h-4" aria-hidden="true" />
                 Send an Email
               </Button>
@@ -135,6 +148,12 @@ export default function Contact() {
                 href="https://github.com/ynotunited"
                 variant="secondary"
                 external
+                onClick={() =>
+                  trackEvent('cta_click', {
+                    cta_label: 'github',
+                    cta_location: 'contact_section',
+                  })
+                }
               >
                 <GithubIcon className="w-4 h-4" aria-hidden="true" />
                 GitHub
@@ -143,6 +162,12 @@ export default function Contact() {
                 href="https://www.linkedin.com/in/tony-o-825992243"
                 variant="secondary"
                 external
+                onClick={() =>
+                  trackEvent('cta_click', {
+                    cta_label: 'linkedin',
+                    cta_location: 'contact_section',
+                  })
+                }
               >
                 <LinkedinIcon className="w-4 h-4" aria-hidden="true" />
                 LinkedIn
@@ -181,6 +206,12 @@ export default function Contact() {
                       href="https://cal.com/tony-olugbusi-tpujta/30min"
                       variant="secondary"
                       external
+                      onClick={() =>
+                        trackEvent('cta_click', {
+                          cta_label: 'schedule_call',
+                          cta_location: 'contact_success',
+                        })
+                      }
                     >
                       Schedule a Call
                     </Button>
@@ -188,6 +219,12 @@ export default function Contact() {
                       href="https://wa.me/2347033864782?text=Hi%20Tony,%0A%0AI%20found%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project."
                       variant="primary"
                       external
+                      onClick={() =>
+                        trackEvent('cta_click', {
+                          cta_label: 'whatsapp',
+                          cta_location: 'contact_success',
+                        })
+                      }
                     >
                       Chat on WhatsApp
                     </Button>
@@ -310,7 +347,17 @@ export default function Contact() {
             <p className="text-text-secondary text-lg mb-5">
               Have an idea? Let&apos;s build it together.
             </p>
-            <Button href="https://cal.com/tony-olugbusi-tpujta/30min" variant="glow" external>
+            <Button
+              href="https://cal.com/tony-olugbusi-tpujta/30min"
+              variant="glow"
+              external
+              onClick={() =>
+                trackEvent('cta_click', {
+                  cta_label: 'discovery_call',
+                  cta_location: 'footer_cta',
+                })
+              }
+            >
               Schedule a Discovery Call
             </Button>
           </div>
